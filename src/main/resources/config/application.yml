@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ceekly?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    username: ENC(9hBRGBBky4x77a2BAn6mmg==)
+    password: ENC(M39nzbJfjTdQb6lnIBmnBqroD4sxCHg0)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    mode: HTML5
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+jasypt:
+  encryptor:
+    password: ${JASYPT_PASSWORD}
