@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weekly | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{css/home.css}">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/home">周报</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" style>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a href="/home">主页</a>
+                </li>
+                <li>
+                    <a href="/form">提交周报</a>
+                </li>
+                <li>
+                    <a href="/logout">注销</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container main">
+
+    <div class="alert alert-info">
+        <strong th:text="${user.getUserInfo().getNickname()}">nickname</strong>
+        ，欢迎登录周报系统！
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="page-header">
+                <h3>用户</h3>
+            </div>
+            <list-group>
+                <a href="#" class="list-group-item active">全部</a>
+                <a href="#" class="list-group-item" th:each="user: ${users}"
+                   th:text="${user.getUserInfo().getNickname()}">nickname</a>
+            </list-group>
+
+            <!--                    <div class="page-header">-->
+            <!--                        <h3>日期</h3>-->
+            <!--                    </div>-->
+            <!--                    <list-group>-->
+            <!--                        <a href="#" class="list-group-item active">至今</a>-->
+            <!--                        <a href="#" class="list-group-item">近三天</a>-->
+            <!--                        <a href="#" class="list-group-item">近一周</a>-->
+            <!--                        <a href="#" class="list-group-item">近一月</a>-->
+            <!--                    </list-group>-->
+
+        </div>
+
+        <div class="col-md-9">
+
+            <div class="page-header">
+                <h3>周报</h3>
+            </div>
+
+            <div class="panel panel-default"  th:each="reportItem: ${reportItems}">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        周报
+                    </h3>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img class="visible-md-block visible-lg-block"
+                                 th:if="${reportItem.getUser().getUserInfo().getAvatar()} eq ''"
+                                 src="https://pic1.zhimg.com/80/v2-e69b64ffc292924e50d8f3e65602e909_720w.jpg" alt=""
+                                 style="margin-bottom: 8px">
+                            <img class="visible-md-block visible-lg-block"
+                                 th:if="${reportItem.getUser().getUserInfo().getAvatar()} ne null"
+                                 th:src="${reportItem.getUser().getUserInfo().getAvatar()}" alt=""
+                                 style="margin-bottom: 8px">
+                            <div class="row">
+                                <div class="col-md-12 col-xs-2 col-sm-2">
+                                    <h4><span class="label label-default" th:text="${reportItem.getUser().getUserInfo().getNickname()}"><!--th:text="${}"-->
+                                                nickname
+                                            </span></h4>
+                                </div>
+                                <div class="col-md-12 col-xs-2 col-sm-2">
+                                    <h4><span class="label label-default"
+                                              th:text="${#dates.format(reportItem.getUpdateDate(), 'yyyy-MM-dd')}">
+                                                date
+                                            </span></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <p><strong>本周工作内容：</strong></p>
+                            <p class="report-content" th:text="${reportItem.getContent()}">
+                                本周工作内容
+                            </p>
+                            <p><strong>下周工作计划：</strong></p>
+                            <p class="report-content" th:if="${reportItem.getPlanContent()} eq null">暂无</p>                                    </p>
+                            <p class="report-content" th:if="${reportItem.getPlanContent()} ne null"
+                               th:text="${reportItem.getPlanContent()}">
+                                下周工作计划
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer fixed-bottom">
+    <div class="container">
+        <p class="text-muted">
+            Do have faith in what you're doing.
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

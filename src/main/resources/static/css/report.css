@@ -1,0 +1,36 @@
+body {
+position: relative;
+min-height: 100%;
+padding-top: 70px;
+}
+
+.main {
+min-height: 90vh;
+padding-bottom: 60px;
+margin-bottom: 60px;
+}
+
+.alert {
+margin-top: 18px;
+margin-bottom: -5px;
+}
+
+img {
+max-width: 100px;
+}
+
+.label {
+margin-bottom: 50px;
+}
+
+.report-content {
+white-space: pre-wrap;
+}
+
+.footer {
+position: relative;
+height: 10vh;
+margin-top: -10vh;
+padding-top: 4vh;
+background-color: #f5f5f5;
+}

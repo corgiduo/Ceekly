@@ -1,0 +1,18 @@
+body {
+    position: relative;
+    min-height: 100%;
+    padding-top: 70px;
+}
+
+.main {
+    min-height: 90vh;
+    padding-bottom: 60px;
+}
+
+.footer {
+    position: relative;
+    height: 10vh;
+    margin-top: -10vh;
+    padding-top: 4vh;
+    background-color: #f5f5f5;
+}

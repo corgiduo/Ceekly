@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weekly | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{css/welcome.css}">
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/welcome">周报</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse in" aria-expanded="true" style>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active">
+                    <a href="/welcome">主页</a>
+                </li>
+                <li>
+                    <a href="/login">登录</a>
+                </li>
+                <li>
+                    <a href="/register">注册</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container main">
+
+    <div class="jumbotron">
+        <h1>码农周报</h1>
+        <p>真的，别玩了，大好青春是用来学习的</p>
+        <p>
+            <a class="btn btn-lg btn-default" href="/login">开始周报 »</a>
+        </p>
+    </div>
+
+    <div class="page-header">
+        <h1>阅读书单</h1>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">皮卡乓</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        《On Java 8》
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">皮卡兵</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        《Spring实战》
+                    </p>
+                    <p>
+                        <span class="glyphicon glyphicon-flag"></span>
+                        《Java并发编程的艺术》
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">皮卡乒</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        《On Java 8》
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="footer fixed-bottom">
+    <div class="container">
+        <p class="text-muted">
+            Do have faith in what you're doing.
+        </p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
