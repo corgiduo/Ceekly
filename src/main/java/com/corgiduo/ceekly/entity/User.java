@@ -1,25 +1,31 @@
 package com.corgiduo.ceekly.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
 import java.util.List;
 
+
 public class User {
 
-    private int id;
+    private Integer id;
     private String username;
     private String password;
-    private int sex;
+    private Integer sex;
     private String nickname;
     private String avatar;
     private String email;
     private Date createDate;
     private Date updateDate;
-    private List<Read> readList;
+    private List<Book> bookList;
     private List<Report> reportList;
 
-    public User(int id, String username, String password, int sex, String nickname,
+    public User() {
+    }
+
+    public User(Integer id, String username, String password, Integer sex, String nickname,
                 String avatar, String email, Date createDate, Date updateDate,
-                List<Read> readList, List<Report> reportList) {
+                List<Book> bookList, List<Report> reportList) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -29,15 +35,15 @@ public class User {
         this.email = email;
         this.createDate = createDate;
         this.updateDate = updateDate;
-        this.readList = readList;
+        this.bookList = bookList;
         this.reportList = reportList;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -57,11 +63,11 @@ public class User {
         this.password = password;
     }
 
-    public int getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -105,12 +111,12 @@ public class User {
         this.updateDate = updateDate;
     }
 
-    public List<Read> getReadList() {
-        return readList;
+    public List<Book> getBookList() {
+        return bookList;
     }
 
-    public void setReadList(List<Read> readList) {
-        this.readList = readList;
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
     }
 
     public List<Report> getReportList() {

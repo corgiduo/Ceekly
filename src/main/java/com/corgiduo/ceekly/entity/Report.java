@@ -1,18 +1,24 @@
 package com.corgiduo.ceekly.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.Date;
+
 
 public class Report {
 
-    private int id;
-    private int type;
+    private Integer id;
+    private Integer type;
     private String reportContent;
     private String planContent;
     private Date createDate;
     private Date updateDate;
     private User user;
 
-    public Report(int id, int type, String reportContent, String planContent, Date createDate, Date updateDate, User user) {
+    public Report() {
+    }
+
+    public Report(Integer id, Integer type, String reportContent, String planContent, Date createDate, Date updateDate, User user) {
         this.id = id;
         this.type = type;
         this.reportContent = reportContent;
@@ -22,19 +28,19 @@ public class Report {
         this.user = user;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
