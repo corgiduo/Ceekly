@@ -16,7 +16,7 @@ public class UserController {
         if (userService.createUser(username, password, md5)) {
             return "redirect:/login";
         } else {
-            return "redirect:/welcome";
+            return "redirect:/register";
         }
     }
 

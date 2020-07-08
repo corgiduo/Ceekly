@@ -1,9 +1,7 @@
 package com.corgiduo.ceekly.service;
 
-import com.corgiduo.ceekly.dao.UserInfoMapper;
 import com.corgiduo.ceekly.dao.UserMapper;
 import com.corgiduo.ceekly.entity.User;
-import com.corgiduo.ceekly.entity.UserInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +25,6 @@ public class UserService implements UserDetailsService {
     @Autowired
     UserMapper userMapper;
 
-    @Autowired
-    UserInfoMapper userInfoMapper;
-
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
 
@@ -51,19 +46,17 @@ public class UserService implements UserDetailsService {
         }
         Date date = new Date();
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        User user = new User(username, password, date, date, null, null);
-        if (userMapper.insertUser(user) != 1) {
-            return false;
-        }
-        UserInfo userInfo = new UserInfo(username, null, null, date, date);
-        if (userInfoMapper.insertUserInfo(user.getId(), userInfo) != 1) {
-            return false;
-        }
-        return true;
+        User user = new User(null, username, encoder.encode(password), null, username,
+                null, null, date, date, null, null);
+        return userMapper.insertUser(user) == 1;
     }
 
-    public List<User> getAll() {
+    public List<User> getAllUser() {
         return userMapper.selectAllUser();
+    }
+
+    public User getUserByUsername(String username) {
+        return userMapper.selectUserByUsername(username);
     }
 
 }
