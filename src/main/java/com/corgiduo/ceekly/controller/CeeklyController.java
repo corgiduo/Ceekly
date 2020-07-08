@@ -16,11 +16,6 @@ public class CeeklyController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/demo")
-    public List<User> selectAllUser() {
-        return userService.getAll();
-    }
-
     @GetMapping("/login")
     public String getLogin() {
         return "login";
