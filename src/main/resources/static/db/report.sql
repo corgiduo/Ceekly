@@ -24,27 +24,18 @@ DROP TABLE IF EXISTS `report`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `report` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `type_id` int NOT NULL,
   `user_id` int NOT NULL,
-  `content` text NOT NULL COMMENT 'Report content of this week',
+  `type` int NOT NULL COMMENT '1-week, 2-month, 3-year',
+  `report_content` text NOT NULL COMMENT 'Report content of this circle',
+  `plan_content` text COMMENT 'Report content of next circle',
   `create_date` date NOT NULL,
   `update_date` date NOT NULL,
   PRIMARY KEY (`id`),
   KEY `report_user_id_fk` (`user_id`),
-  KEY `report_report_type_id_fk` (`type_id`),
-  CONSTRAINT `report_report_type_id_fk` FOREIGN KEY (`type_id`) REFERENCES `report_type` (`id`),
+  KEY `report_report_type_id_fk` (`type`),
   CONSTRAINT `report_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `report`
---
-
-LOCK TABLES `report` WRITE;
-/*!40000 ALTER TABLE `report` DISABLE KEYS */;
-/*!40000 ALTER TABLE `report` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -55,4 +46,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-07  1:01:35
+-- Dump completed on 2020-07-09  2:52:22

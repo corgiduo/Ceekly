@@ -2,21 +2,19 @@ package com.corgiduo.ceekly.entity;
 
 import java.util.Date;
 
-public class Report {
+public class Read {
 
     private int id;
-    private int type;
-    private String reportContent;
-    private String planContent;
+    private String title;
+    private int status;
     private Date createDate;
     private Date updateDate;
     private User user;
 
-    public Report(int id, int type, String reportContent, String planContent, Date createDate, Date updateDate, User user) {
+    public Read(int id, String title, int status, Date createDate, Date updateDate, User user) {
         this.id = id;
-        this.type = type;
-        this.reportContent = reportContent;
-        this.planContent = planContent;
+        this.title = title;
+        this.status = status;
         this.createDate = createDate;
         this.updateDate = updateDate;
         this.user = user;
@@ -30,28 +28,20 @@ public class Report {
         this.id = id;
     }
 
-    public int getType() {
-        return type;
+    public String getTitle() {
+        return title;
     }
 
-    public void setType(int type) {
-        this.type = type;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getReportContent() {
-        return reportContent;
+    public int getStatus() {
+        return status;
     }
 
-    public void setReportContent(String reportContent) {
-        this.reportContent = reportContent;
-    }
-
-    public String getPlanContent() {
-        return planContent;
-    }
-
-    public void setPlanContent(String planContent) {
-        this.planContent = planContent;
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public Date getCreateDate() {
