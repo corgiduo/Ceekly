@@ -1,6 +1,7 @@
 package com.corgiduo.ceekly.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
 
@@ -9,13 +10,27 @@ public class User {
     private String password;
     private Date createDate;
     private Date updateDate;
+    private UserInfo userInfo;
+    private List<ReadList> readList;
 
-    public User(int id, String username, String password, Date createDate, Date updateDate) {
+    public User(String username, String password, Date createDate, Date updateDate, UserInfo userInfo, List<ReadList> readList) {
+        this.username = username;
+        this.password = password;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.userInfo = userInfo;
+        this.readList = readList;
+    }
+
+    public User(int id, String username, String password, Date createDate,
+                Date updateDate, UserInfo userInfo, List<ReadList> readList) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.createDate = createDate;
         this.updateDate = updateDate;
+        this.userInfo = userInfo;
+        this.readList = readList;
     }
 
     public int getId() {
@@ -56,5 +71,21 @@ public class User {
 
     public void setUpdateDate(Date updateDate) {
         this.updateDate = updateDate;
+    }
+
+    public UserInfo getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(UserInfo userInfo) {
+        this.userInfo = userInfo;
+    }
+
+    public List<ReadList> getReadList() {
+        return readList;
+    }
+
+    public void setReadList(List<ReadList> readList) {
+        this.readList = readList;
     }
 }
