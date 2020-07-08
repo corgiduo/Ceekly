@@ -27,7 +27,7 @@
                     <a href="/home">主页</a>
                 </li>
                 <li>
-                    <a href="/form">提交周报</a>
+                    <a href="/report">提交周报</a>
                 </li>
                 <li>
                     <a href="/logout">注销</a>
@@ -40,7 +40,7 @@
 <div class="container main">
 
     <div class="alert alert-info">
-        <strong th:text="${user.getUserInfo().getNickname()}">nickname</strong>
+        <strong th:text="${user.getNickname()}">昵称</strong>
         ，欢迎登录周报系统！
     </div>
 
@@ -51,9 +51,9 @@
                 <h3>用户</h3>
             </div>
             <list-group>
-                <a href="#" class="list-group-item active">全部</a>
-                <a href="#" class="list-group-item" th:each="user: ${users}"
-                   th:text="${user.getUserInfo().getNickname()}">nickname</a>
+                <a href="/home" class="list-group-item active">全部</a>
+                <a class="list-group-item" th:each="user: ${userList}"
+                   th:text="${user.getNickname()}">昵称</a>
             </list-group>
 
             <!--                    <div class="page-header">-->
@@ -74,7 +74,7 @@
                 <h3>周报</h3>
             </div>
 
-            <div class="panel panel-default"  th:each="reportItem: ${reportItems}">
+            <div class="panel panel-default"  th:each="report: ${reportList}">
                 <div class="panel-heading">
                     <h3 class="panel-title">
                         周报
@@ -85,22 +85,22 @@
                     <div class="row">
                         <div class="col-md-2">
                             <img class="visible-md-block visible-lg-block"
-                                 th:if="${reportItem.getUser().getUserInfo().getAvatar()} eq ''"
+                                 th:if="${report.getUser().getAvatar()} eq null"
                                  src="https://pic1.zhimg.com/80/v2-e69b64ffc292924e50d8f3e65602e909_720w.jpg" alt=""
                                  style="margin-bottom: 8px">
                             <img class="visible-md-block visible-lg-block"
-                                 th:if="${reportItem.getUser().getUserInfo().getAvatar()} ne null"
-                                 th:src="${reportItem.getUser().getUserInfo().getAvatar()}" alt=""
+                                 th:if="${report.getUser().getAvatar()} ne null"
+                                 th:src="${report.getUser().getAvatar()}" alt=""
                                  style="margin-bottom: 8px">
                             <div class="row">
                                 <div class="col-md-12 col-xs-2 col-sm-2">
-                                    <h4><span class="label label-default" th:text="${reportItem.getUser().getUserInfo().getNickname()}"><!--th:text="${}"-->
+                                    <h4><span class="label label-default" th:text="${report.getUser().getNickname()}"><!--th:text="${}"-->
                                                 nickname
                                             </span></h4>
                                 </div>
                                 <div class="col-md-12 col-xs-2 col-sm-2">
                                     <h4><span class="label label-default"
-                                              th:text="${#dates.format(reportItem.getUpdateDate(), 'yyyy-MM-dd')}">
+                                              th:text="${#dates.format(report.getUpdateDate(), 'yyyy-MM-dd')}">
                                                 date
                                             </span></h4>
                                 </div>
@@ -108,13 +108,13 @@
                         </div>
                         <div class="col-md-10">
                             <p><strong>本周工作内容：</strong></p>
-                            <p class="report-content" th:text="${reportItem.getContent()}">
+                            <p class="report-content" th:text="${report.getReportContent()}">
                                 本周工作内容
                             </p>
                             <p><strong>下周工作计划：</strong></p>
-                            <p class="report-content" th:if="${reportItem.getPlanContent()} eq null">暂无</p>                                    </p>
-                            <p class="report-content" th:if="${reportItem.getPlanContent()} ne null"
-                               th:text="${reportItem.getPlanContent()}">
+                            <p class="report-content" th:if="${report.getPlanContent()} eq null">暂无</p>                                    </p>
+                            <p class="report-content" th:if="${report.getPlanContent()} ne null"
+                               th:text="${report.getPlanContent()}">
                                 下周工作计划
                             </p>
 

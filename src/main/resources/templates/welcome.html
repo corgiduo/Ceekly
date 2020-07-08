@@ -52,47 +52,19 @@
     </div>
     <div class="row">
 
-        <div class="col-md-4">
+        <!--/*@thymesVar id="userList" type="com.corgiduo.ceekly.entity.User"*/-->
+        <div class="col-md-4" th:each="user: ${userList}">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">皮卡乓</h3>
+                    <h3 class="panel-title" th:text="${user.getNickname()}">用户名</h3>
                 </div>
                 <div class="panel-body">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                        《On Java 8》
-                    </p>
-                </div>
-            </div>
-        </div>
+                    <p th:each="book: ${user.getBookList()}">
+                        <span class="glyphicon glyphicon-ok-sign" th:if="${book.getStatus()} eq 1"></span>
+                        <span class="glyphicon glyphicon-eye-open" th:if="${book.getStatus()} eq 2"></span>
+                        <span class="glyphicon glyphicon-plus-sign" th:if="${book.getStatus()} eq 3"></span>
+                        <span th:text="${book.getTitle()}">书名</span>
 
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">皮卡兵</h3>
-                </div>
-                <div class="panel-body">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                        《Spring实战》
-                    </p>
-                    <p>
-                        <span class="glyphicon glyphicon-flag"></span>
-                        《Java并发编程的艺术》
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">皮卡乒</h3>
-                </div>
-                <div class="panel-body">
-                    <p>
-                        <span class="glyphicon glyphicon-eye-open"></span>
-                        《On Java 8》
                     </p>
                 </div>
             </div>

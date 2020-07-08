@@ -14,19 +14,11 @@ public interface BookMapper {
 
     @Insert("INSERT INTO book(user_id, title, status, create_date, update_date) " +
             "VALUES(#{user_id}, #{book.title}, #{book.status}, #{book.createDate}, #{book.updateDate})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "book.id", keyColumn = "id")
     public int insertBook(@Param("user_id")int userId,
                           @Param("book") Book book);
 
-    @Select("SELECT * FROM book WHERE user_id = #{user_id}")
+    @Select("SELECT * FROM book WHERE user_id = #{user_id} ORDER BY status DESC")
     public List<Book> selectBookByUserId(@Param("user_id")int userId);
-
-    @Select("SELECT * FROM book")
-    @Results(value = {
-            @Result(property = "id", column = "id"),
-            @Result(property = "user", column = "user_id", javaType = User.class,
-                    one = @One(select = "com.corgiduo.ceekly.dao.UserMapper.selectUserById"))
-    })
-    public List<Book> selectAllBook();
 
 }

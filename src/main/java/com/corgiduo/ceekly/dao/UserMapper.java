@@ -16,7 +16,7 @@ public interface UserMapper {
     @Insert("INSERT INTO user(username, password, nickname, avatar, email, create_date, update_date) " +
             "VALUES(#{user.username}, #{user.password}, #{user.nickname}, #{user.avatar}, " +
             "#{user.email}, #{user.createDate}, #{user.updateDate})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "user.id", keyColumn = "id")
     int insertUser(@Param("user")User user);
 
     @Delete("DELETE FROM user")

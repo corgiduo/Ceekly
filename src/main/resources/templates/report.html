@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Weekly | Home</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" th:href="@{css/form.css}">
+    <link rel="stylesheet" th:href="@{css/report.css}">
 </head>
 <body>
 
@@ -27,7 +27,7 @@
                     <a href="/home">主页</a>
                 </li>
                 <li class="active">
-                    <a href="/form">提交周报</a>
+                    <a href="/report">提交周报</a>
                 </li>
                 <li>
                     <a href="/logout">注销</a>
@@ -39,11 +39,11 @@
 
 <div class="container main">
 
-    <div class="form-weekly">
+    <div class="form-report">
         <form action="/submit" method="post">
-            <h2 class="form-weekly-heading">提交周报</h2>
-            <label for="content">本周工作内容</label>
-            <textarea type="text" id="content" name="content" class="form-control" rows="5" required autofocus></textarea>
+            <h2 class="form-report-heading">提交周报</h2>
+            <label for="report-content">本周工作内容</label>
+            <textarea type="text" id="report-content" name="reportContent" class="form-control" rows="5" required autofocus></textarea>
             <label for="plan-content" class="plan-title">下周工作计划</label>
             <textarea type="text" id="plan-content" name="planContent" class="form-control" rows="5" required autofocus></textarea>
             <button class="btn btn-lg btn-default btn-block center-block" type="submit">提交</button>

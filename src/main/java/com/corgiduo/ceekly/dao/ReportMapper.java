@@ -15,7 +15,7 @@ public interface ReportMapper {
     @Insert("INSERT INTO report(user_id, type, report_content, plan_content, create_date, update_date) " +
             "VALUES(#{user_id}, #{report.type}, #{report.reportContent}, " +
             "#{report.planContent}, #{report.createDate}, #{report.updateDate})")
-    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Options(useGeneratedKeys = true, keyProperty = "report.id", keyColumn = "id")
     public int insertReport(@Param("user_id")int userId,
                             @Param("report")Report report);
 
@@ -25,7 +25,7 @@ public interface ReportMapper {
     @Select("SELECT * FROM report WHERE user_id = #{user_id}")
     public List<Report> selectReportByUserId(@Param("user_id")int userId);
 
-    @Select("SELECT * FROM report")
+    @Select("SELECT * FROM report ORDER BY update_date DESC, id DESC")
     @Results(value = {
             @Result(property = "id", column = "id"),
             @Result(property = "user", column = "user_id", javaType = User.class,
