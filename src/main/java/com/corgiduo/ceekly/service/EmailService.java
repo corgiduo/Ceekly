@@ -35,8 +35,7 @@ public class EmailService {
         final String content = "，您本周的周报尚未提交，请尽快填写！\n\nCeekly：http://ceekly.corgiduo.com";
         List<User> userList = userMapper.selectAllUser();
         for (User user : userList) {
-            boolean flag = hasReport(user.getUsername());
-            if (flag) {
+            if (!hasReport(user.getUsername())) {
                 String toAddr = user.getEmail();
                 if (toAddr != null && toAddr != "") {
                     sendTextEmail(fromAddr, toAddr, title, user.getNickname() + content, user.getNickname());
