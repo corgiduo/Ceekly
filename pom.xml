@@ -10,9 +10,9 @@
     </parent>
     <groupId>com.corgiduo</groupId>
     <artifactId>ceekly</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>ceekly</name>
-    <description>A weekly project based on Spring Boot.</description>
+    <description>add email reminder.</description>
 
     <properties>
         <java.version>1.8</java.version>
