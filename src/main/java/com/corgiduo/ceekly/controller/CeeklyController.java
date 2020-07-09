@@ -26,7 +26,7 @@ public class CeeklyController {
 
     @GetMapping("/")
     public String getDefaultPage() {
-        return "redirect:/welcome";
+        return "welcome";
     }
 
     @GetMapping("/welcome")

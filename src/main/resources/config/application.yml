@@ -19,3 +19,5 @@ mybatis:
 jasypt:
   encryptor:
     password: ${JASYPT_PASSWORD}
+server:
+  port: 8080
