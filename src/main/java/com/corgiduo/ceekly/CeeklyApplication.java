@@ -6,12 +6,14 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @MapperScan("com.corgiduo.ceekly.dao")
 //@EnableAutoConfiguration(exclude = {
 //        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class
 //})
+@EnableScheduling
 public class CeeklyApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

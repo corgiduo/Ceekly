@@ -13,6 +13,10 @@ spring:
     servlet:
       content-type: text/html
     mode: HTML5
+  mail:
+    host: ENC(DFYiW/lIgV6p57/wlU0GWuiNyZ2NR6Ii)
+    username: ENC(ydU1dKGFJ3oZEnyhCueCf5I7uPBue9tpQIdIH98pQlg=)
+    password: ENC(l+Yvbx0jpSzJI4UYKtAMJ3MR29eh0QFxNuWYJYC/X+s=)
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -21,3 +25,6 @@ jasypt:
     password: ${JASYPT_PASSWORD}
 server:
   port: 8080
+mail:
+  fromMail:
+    addr: ENC(QxDn2bReF541EVgqN2AqAhNHPyXpkfgKfrPOy+NbVYY=)

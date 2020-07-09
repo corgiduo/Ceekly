@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Mapper
@@ -32,5 +33,10 @@ public interface ReportMapper {
                     one = @One(select = "com.corgiduo.ceekly.dao.UserMapper.selectUserById"))
     })
     public List<Report> selectAllReport();
+
+    @Select("SELECT a.update_date FROM report a INNER JOIN user b " +
+            "ON a.user_id = b.id AND b.username = #{username} " +
+            "ORDER BY a.id DESC LIMIT 1")
+    public Date selectLatestReportDateByUsername(@Param("username") String username);
 
 }
