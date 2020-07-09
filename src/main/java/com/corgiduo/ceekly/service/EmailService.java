@@ -29,7 +29,7 @@ public class EmailService {
     @Value("${mail.fromMail.addr}")
     private String fromAddr;
 
-    @Scheduled(cron = "5 0/5 * * * ?")
+    @Scheduled(cron = "0 0 18 * * 7")
     public void emailAlter() {
         final String title = "Ceekly | 本周周报提醒";
         final String content = "，您本周的周报尚未提交，请尽快填写！\n\nCeekly：http://ceekly.corgiduo.com";
