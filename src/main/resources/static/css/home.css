@@ -6,6 +6,7 @@ body {
 
 .main {
     min-height: 90vh;
+    margin-top: 15px;
     padding-bottom: 60px;
     margin-bottom: 60px;
 }
