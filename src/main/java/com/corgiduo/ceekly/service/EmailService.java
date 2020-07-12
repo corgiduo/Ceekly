@@ -29,15 +29,17 @@ public class EmailService {
     @Value("${mail.fromMail.addr}")
     private String fromAddr;
 
-    @Scheduled(cron = "0 0 18 * * 7")
+    @Scheduled(cron = "0 30 17 * * 7")
     public void emailAlter() {
         final String title = "Ceekly | 本周周报提醒";
         final String content = "，您本周的周报尚未提交，请尽快填写！\n\nCeekly：http://ceekly.corgiduo.com";
         List<User> userList = userMapper.selectAllUser();
         for (User user : userList) {
             if (!hasReport(user.getUsername())) {
+                logger.info(user.getNickname() + " has not submitted report");
                 String toAddr = user.getEmail();
                 if (toAddr != null && toAddr != "") {
+                    logger.info("mail address of " + user.getNickname() + " is not null");
                     sendTextEmail(fromAddr, toAddr, title, user.getNickname() + content, user.getNickname());
                 }
             }
@@ -56,6 +58,7 @@ public class EmailService {
             logger.info("email has been sent to " + nickname + " | " + date);
         } catch (Exception e) {
             logger.error("an exception occurred while sending mail | " + date);
+            e.printStackTrace();
         }
     }
 

@@ -17,7 +17,6 @@ class CeeklyApplicationTest {
 
     @Test
     public void test() {
-
     }
 
 }

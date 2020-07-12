@@ -15,8 +15,23 @@ spring:
     mode: HTML5
   mail:
     host: ENC(DFYiW/lIgV6p57/wlU0GWuiNyZ2NR6Ii)
+    port: 465
+    protocol: smtp
     username: ENC(ydU1dKGFJ3oZEnyhCueCf5I7uPBue9tpQIdIH98pQlg=)
-    password: ENC(l+Yvbx0jpSzJI4UYKtAMJ3MR29eh0QFxNuWYJYC/X+s=)
+    password: ENC(wX5LYcsdQCpIsm0od9F4x2pQuZXAG3sAmq8YFgRthXQ=)
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+    default-encoding: UTF-8
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -24,7 +39,7 @@ jasypt:
   encryptor:
     password: ${JASYPT_PASSWORD}
 server:
-  port: 8080
+  port: 80
 mail:
   fromMail:
     addr: ENC(QxDn2bReF541EVgqN2AqAhNHPyXpkfgKfrPOy+NbVYY=)
